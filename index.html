@@ -34,6 +34,25 @@
             <input type="color" class="color-picker" id="font-color-picker" onchange="changeFontColor(this.value)">
             <img src="Resources/color.jpeg" width="24" height="20">
         </label>
+        <a href="#" onclick="alignText('left')">
+            <i class="fas fa-align-left"></i>
+            <img src="Resources/left.png" alt="" class="img-left">
+        </a>
+
+        <a href="#" onclick="alignText('center')">
+            <i class="fas fa-align-center"></i>
+            <img src="Resources/center.png" alt="" class="img-center">
+        </a>
+
+        <a href="#" onclick="alignText('right')">
+            <i class="fas fa-align-right"></i>
+            <img src="Resources/right.png" alt="" class="img-right">
+        </a>
+
+        <a href="#" onclick="justifyText()">
+            <i class="fas fa-align-justify"></i>
+            <img src="Resources/justify.png" alt="" class="img-justify">
+        </a>
 
 
     </nav>
@@ -83,18 +102,23 @@
         document.execCommand('justify' + align, false, null);
         saveContent();
     }
+
     function changeFontColor(selectedColor) {
         document.execCommand('foreColor', false, selectedColor);
         saveState(); 
     }
 
-    
+    function justifyText() {
+        document.execCommand('justifyFull', false, null);
+        saveContent();
+    }
 
     editor.addEventListener('paste', (event) => {
     event.preventDefault(); 
     const pastedText = (event.clipboardData || window.clipboardData).getData('text');
     document.execCommand('insertText', false, pastedText);
 });
+
 
 
     
