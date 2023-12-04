@@ -18,3 +18,28 @@ button {
     width: 800px; /* Adjusted width */
     height: 350px; /* Adjusted height */
 }
+#backgroundcolor{
+    background-color: black;
+}
+.custom-button {
+    background-color: black;
+    color: white;
+    border: 20px;
+    padding: 7px 15px;
+    cursor: pointer;
+}
+
+.color-picker-label {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  color:black
+}
+
+.color-picker {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
