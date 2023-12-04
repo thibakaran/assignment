@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Web-based Text Editing Application</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-1a6fl5q5YorljjzdGwP0ttHrPz8FkU4/r4Os+33tGOVX7gf7ybHfz1wd6ZL83NVqFS9KGmCK5MzH5j7kgS2Iug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="EditorPanel.css">
+    <link rel="stylesheet" href="Feature.css">
+
+    <style>
+        #colorPicker {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="editor-panel">
+    <nav>
+
+
+
+    </nav>
+</div>
+
+<div id="editor" contenteditable="true">
+    Type your text here...
+</div>
+
+<script>
+    let contentStack = [];
+    let currentIndex = -1;
+
+    function saveContent() {
+        let content = document.getElementById('editor').innerHTML;
+        if (currentIndex === contentStack.length - 1) {
+            contentStack.push(content);
+            currentIndex++;
+        } else {
+            contentStack = contentStack.slice(0, currentIndex + 1);
+            contentStack.push(content);
+            currentIndex++;
+        }
+    }
+
+   
+
+
+    
+</script>
+
+</body>
+</html>
