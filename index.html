@@ -53,6 +53,16 @@
             <i class="fas fa-align-justify"></i>
             <img src="Resources/justify.png" alt="" class="img-justify">
         </a>
+        <a href="#" onclick="undoText()">
+            <i class="fas fa-undo"></i>
+            <img src="Resources/undo-4-32.png" alt="" class="img-undo">
+        </a>
+
+        <a href="#" onclick="redoText()">
+            <i class="fas fa-redo"></i>
+            <img src="Resources/action-redo-32.png" alt="" class="img-redo">
+        </a>
+
 
 
     </nav>
@@ -118,10 +128,20 @@
     const pastedText = (event.clipboardData || window.clipboardData).getData('text');
     document.execCommand('insertText', false, pastedText);
 });
+function undoText() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            restoreContent(currentIndex);
+        }
+    }
 
+    function redoText() {
+        if (currentIndex < contentStack.length - 1) {
+            currentIndex++;
+            restoreContent(currentIndex);
+        }
+    }
 
-
-    
 </script>
 
 </body>
